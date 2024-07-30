@@ -70,9 +70,10 @@ def save_the_model_to_location(save_path: str, tflite_model):
     with open(save_path+'model.tflite', 'wb') as f:
         f.write(tflite_model)
         
-def runner_function():
+def main():
     args = parse_args()
     model = load_model(model_path=args.model_path)
     main_convertor(model, tuple(args.input_shape), args.output_path)
-    
-runner_function()
+
+if __name__ == "__main__":
+    main()
